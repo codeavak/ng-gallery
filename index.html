@@ -1,0 +1,36 @@
+<!doctype html>
+<head>
+    <title>Angular Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body ng-app='myApp'>
+<div class='container'>
+    <h3>Sample image gallery using angular js and bootstrap list-group</h1>
+    <div ng-controller='myController as c'>
+        <div class="row">
+                <div class="col-4">
+                <div class="list-group" id="list-tab" role="tablist" ng-repeat='movie in c.movies'>
+                    <a class="list-group-item list-group-item-action" ng-class="{active: $index==c.selectedName}" ng-click="c.checkThemeContent($index)" id="list-{{$index}}-list" data-toggle="list" href="#list-{{$index}}" role="tab" aria-controls="{{$index}}">{{movie.Name}}</a>
+                
+                </div>
+                </div>
+                <div class="col-8">
+                <div class="tab-content" id="nav-tabContent" ng-repeat='movie in c.movies'>
+                    <div class="tab-pane fade"  ng-class="{show: $index==c.selectedName,active: $index==c.selectedName}" id="list-{{$index}}" role="tabpanel" aria-labelledby="list-{{$index}}-list"><img ng-src='{{movie.Poster}}'/></div>
+
+                </div>
+                </div>
+            </div>
+
+    <h1>The Scope</h1>
+    <pre>
+        {{c |json}}
+    </pre>
+
+    </div>
+   </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js'></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='scripts/app.js'></script>
+</body>
